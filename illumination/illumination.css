@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#illumination {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    overflow: hidden;
+}
+
+#illumination .milkman {
+    height: 10rem;
+    position: relative;
+    top: 10rem;
+    animation: illumination_milkman 5s forwards ease-out
+}
+
+#illumination .milk {
+    height: 2rem;
+    position: relative;
+    top: 10rem;
+    animation: illumination_milk 10s 0s forwards
+}
+
+@keyframes illumination_milkman {
+    to {
+        top: -10rem
+    }
+}
+
+@keyframes illumination_milk {
+    to {
+        top: -25rem;
+    }
+}
