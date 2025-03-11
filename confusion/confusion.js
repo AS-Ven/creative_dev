@@ -18,18 +18,49 @@ const randomSize = () => {
 
 const drawCube = (color, size) => {
     ctx.fillStyle = color;
-    ctx.fillRect(randomPosition(), randomPosition() / 2, size, size / 2);
+    let x = randomPosition()
+    let y = randomPosition() / 2
+    for (let i = 0; i < 1; i += 0.1) {
+        setTimeout(() => {
+            ctx.globalAlpha = i
+            ctx.fillRect(x, y, size, size);
+        }, 2000 * i);
+    }
 }
 
 const drawCircle = (color, size) => {
-    ctx.beginPath();
-    ctx.arc(randomPosition(), randomPosition() / 2, size / 2, 0, 2 * Math.PI);
     ctx.fillStyle = color;
-    ctx.fill();
+    let x = randomPosition()
+    let y = randomPosition() / 2
+    for (let i = 0; i < 1; i += 0.1) {
+        setTimeout(() => {
+            ctx.globalAlpha = i
+            ctx.beginPath();
+            ctx.arc(x, y, size / 2, 0, 2 * Math.PI);
+            ctx.fill();
+        }, 2000 * i);
+    }
+}
+
+const drawTriangle = (color, size) => {
+    ctx.fillStyle = color;
+    let x = randomPosition()
+    let y = randomPosition() / 2
+    for (let i = 0; i < 1; i += 0.1) {
+        setTimeout(() => {
+            ctx.globalAlpha = i
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + size, y);
+            ctx.lineTo(x + size / 2, y - Math.round(Math.sqrt((size * size) - ((size / 2) * (size / 2)))));
+            ctx.lineTo(x, y);
+            ctx.fill();
+        }, 2000 * i);
+    }
 }
 
 const drawThings = () => {
-    geo = Math.floor(Math.random() * 2)
+    geo = Math.floor(Math.random() * 3)
 
     switch (geo) {
         case 0:
@@ -38,11 +69,16 @@ const drawThings = () => {
         case 1:
             drawCircle(randomColor(), randomSize())
             break;
+        case 2:
+            drawTriangle(randomColor(), randomSize())
+            break
         default:
             break;
     }
 }
 
-for (let i = 0; i < 150; i++) {
-    drawThings()
+for (let i = 1; i < 1500; i++) {
+    setTimeout(() => {
+        drawThings()
+    }, 2100 * i);
 }

@@ -12,8 +12,19 @@ body {
     align-items: center;
 }
 
+section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 #confusion canvas {
-    width: 10rem;
-    height: 10rem;
-    background-color: black;
+    width: 50rem;
+}
+
+#confusion p {
+    width: 20rem;
+    font-size: 2rem;
 }
