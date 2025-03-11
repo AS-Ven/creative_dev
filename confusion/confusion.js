@@ -1,3 +1,5 @@
+//#region Canvas
+
 const confusion_canvas = document.getElementById("confusion_canvas");
 const ctx = confusion_canvas.getContext("2d");
 
@@ -24,7 +26,7 @@ const drawCube = (color, size) => {
         setTimeout(() => {
             ctx.globalAlpha = i
             ctx.fillRect(x, y, size, size);
-        }, 2000 * i);
+        }, 1000 * i);
     }
 }
 
@@ -38,7 +40,7 @@ const drawCircle = (color, size) => {
             ctx.beginPath();
             ctx.arc(x, y, size / 2, 0, 2 * Math.PI);
             ctx.fill();
-        }, 2000 * i);
+        }, 1000 * i);
     }
 }
 
@@ -55,7 +57,7 @@ const drawTriangle = (color, size) => {
             ctx.lineTo(x + size / 2, y - Math.round(Math.sqrt((size * size) - ((size / 2) * (size / 2)))));
             ctx.lineTo(x, y);
             ctx.fill();
-        }, 2000 * i);
+        }, 1000 * i);
     }
 }
 
@@ -77,8 +79,38 @@ const drawThings = () => {
     }
 }
 
+//#endregion
+
+
+
+//#region Text
+
+const paragraph = document.getElementById("confusion_text")
+let text = paragraph.textContent
+let characters = text.split("")
+
+const randomChar = () => {
+    let array = "abcd efgh ijkl mopq rstu vwxy z,?'".split("")
+    return array[Math.floor(Math.random() * array.length)]
+}
+
+
+
+//#endregion
+
+
+//#region Execution
+
 for (let i = 1; i < 1500; i++) {
     setTimeout(() => {
         drawThings()
-    }, 2100 * i);
+    }, 1050 * i);
 }
+
+paragraph.addEventListener("mouseover", () => {
+    characters[Math.floor(Math.random() * characters.length)] = randomChar()
+    text = characters.join("")
+    paragraph.innerHTML = text
+})
+
+//#endregion
