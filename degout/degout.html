@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dégoût - Une histoire écœurante</title>
+    <link rel="stylesheet" href="degout.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <section class="emotion active" id="degout">
+        <h2 class="unselectable">Dégoût</h2>
+        <div class="story-container">
+            <div class="story-text-container">
+                <div id="story-text" class="story-text"></div>
+                <button id="start-story" class="start-button">Commencer l'histoire</button>
+            </div>
+            <div id="visual-effects" class="visual-effects"></div>
+        </div>
+        <div id="stains-container" class="stains-container"></div>
+        
+        <audio id="typing-sound" src="https://freesound.org/data/previews/256/256337_4486188-lq.mp3" preload="auto"></audio>
+        <audio src="../Sound/rickroll.mp3" id="disgustAudio"></audio>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="degout.js"></script>
+</body>
+</html>
