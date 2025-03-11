@@ -1,0 +1,129 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ennui {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.ennui_text {
+    width: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-size: 7.5rem;
+    color: red;
+    visibility: hidden;
+}
+
+.ennui_loading {
+    height: 20rem;
+    width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#ennui button {
+    position: absolute;
+    font-size: 5rem;
+    border-radius: 999px;
+    height: 10rem;
+    width: 40rem;
+}
+
+#ennui button:hover {
+    background-color: lightgray;
+}
+
+.ennui_loading div {
+    height: 5rem;
+    width: 2rem;
+    border-radius: 999px;
+    position: absolute;
+    background-color: gray;
+    opacity: 0;
+}
+
+.ennui_1 {
+    top: 0;
+    animation: ennui_fade 4s 0s infinite;
+}
+
+.ennui_2 {
+    top: 2rem;
+    right: 3.5rem;
+    transform: rotate(45deg);
+    animation: ennui_fade 4s 0.5s infinite;
+}
+
+.ennui_3 {
+    right: 1.5rem;
+    transform: rotate(90deg);
+    animation: ennui_fade 4s 1s infinite;
+}
+
+.ennui_4 {
+    bottom: 2rem;
+    right: 3.5rem;
+    transform: rotate(-45deg);
+    animation: ennui_fade 4s 1.5s infinite;
+}
+
+.ennui_5 {
+    bottom: 0;
+    animation: ennui_fade 4s 2s infinite;
+}
+
+.ennui_6 {
+    bottom: 2rem;
+    left: 3.5rem;
+    transform: rotate(45deg);
+    animation: ennui_fade 4s 2.5s infinite;
+}
+
+.ennui_7 {
+    left: 1.5rem;
+    transform: rotate(90deg);
+    animation: ennui_fade 4s 3s infinite;
+}
+
+.ennui_8 {
+    top: 2rem;
+    left: 3.5rem;
+    transform: rotate(-45deg);
+    animation: ennui_fade 4s 3.5s infinite;
+}
+
+@keyframes ennui_fade {
+    from {
+        opacity: 100%;
+    }
+    to {
+        opacity: 0;
+    }
+}
