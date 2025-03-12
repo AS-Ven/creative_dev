@@ -3,18 +3,18 @@ body {
     font-family: 'Courier New', monospace;
     background-color: #0a0a0a;
     color: #d3d7c3;
-    overflow-x: hidden;
+    overflow: hidden;
     text-shadow: 0 0 2px rgba(20, 40, 0, 0.4);
 }
 
-#degout {
+#disgust {
     position: relative;
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 20px;
     background-image: 
         url('https://www.transparenttextures.com/patterns/green-dust-and-scratches.png'),
@@ -25,12 +25,11 @@ body {
     background-blend-mode: overlay, screen, multiply, normal;
 }
 
-/* CONTAINER DE L'HISTOIRE - ASPECT PUTRÉFIÉ AVANCÉ */
 .story-container {
     position: relative;
     width: 90%;
     max-width: 800px;
-    margin: 30px auto;
+    margin: 0 auto;
     background-color: rgba(12, 16, 6, 0.95);
     border: 3px solid;
     border-image: linear-gradient(to bottom, #384722, #1a230d) 1;
@@ -49,7 +48,6 @@ body {
         inset 0 0 70px rgba(40, 60, 20, 0.7);
 }
 
-/* EFFET DE MOISISSURE AVANCÉ SUR LES BORDS */
 .story-container::before {
     content: '';
     position: absolute;
@@ -77,7 +75,6 @@ body {
     100% { transform: scale(1.07); }
 }
 
-/* EFFET DE SUBSTANCE VISQUEUSE AMÉLIORÉ QUI COULE */
 .story-container::after {
     content: '';
     position: absolute;
@@ -107,7 +104,6 @@ body {
     100% { background-position: 0 200px; }
 }
 
-/* TEXTE DE L'HISTOIRE - STYLE NAUSÉABOND AMÉLIORÉ */
 .story-text-container {
     position: relative;
     z-index: 5;
@@ -125,7 +121,6 @@ body {
     position: relative;
 }
 
-/* BOÎTE DE DIALOGUE VISQUEUSE STYLE POKÉMON AMÉLIORÉE */
 .dialog-box {
     position: relative;
     background: linear-gradient(to bottom, #0b1005, #0d1406);
@@ -157,7 +152,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* EFFET DE SUBSTANCE VISQUEUSE AMÉLIORÉ SUR LA BOÎTE DE DIALOGUE */
 .dialog-box::after {
     content: '';
     position: absolute;
@@ -177,7 +171,6 @@ body {
     mix-blend-mode: overlay;
 }
 
-/* TEXTURE DE MOISISSURE VISQUEUSE */
 .dialog-box::before {
     content: '';
     position: absolute;
@@ -208,7 +201,6 @@ body {
     transition: all 0.3s;
 }
 
-/* INDICATEUR DE CONTINUATION - VISQUEUX AMÉLIORÉ */
 .continue-indicator {
     position: absolute;
     bottom: 10px;
@@ -223,7 +215,6 @@ body {
     transform-style: preserve-3d;
 }
 
-/* HIGHLIGHT POUR LES MOMENTS DÉGOÛTANTS AMÉLIORÉ */
 .disgust-highlight {
     color: #8aff44;
     font-weight: bold;
@@ -240,7 +231,6 @@ body {
     letter-spacing: 0.7px;
 }
 
-/* EFFET DE GOUTTE AMÉLIORÉ SUR LES MOTS DÉGOÛTANTS */
 .disgust-highlight::after {
     content: '';
     position: absolute;
@@ -256,7 +246,6 @@ body {
     opacity: 0;
 }
 
-/* BOUTON DE DÉMARRAGE - VISQUEUX AMÉLIORÉ */
 .start-button {
     display: block;
     margin: 20px auto;
@@ -282,7 +271,6 @@ body {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* EFFETS DE SURVOL DU BOUTON AMÉLIORÉS */
 .start-button:hover {
     transform: translateY(-4px) scale(1.05);
     box-shadow: 
@@ -304,7 +292,6 @@ body {
     background: linear-gradient(170deg, #66ee33, #339911);
 }
 
-/* EFFET DE SUBSTANCE VISQUEUSE AMÉLIORÉ SUR LE BOUTON */
 .start-button::before {
     content: '';
     position: absolute;
@@ -321,7 +308,6 @@ body {
     filter: blur(4px);
 }
 
-/* EFFET D'ÉCLABOUSSURE SUR CLIC */
 .start-button::after {
     content: '';
     position: absolute;
@@ -343,7 +329,6 @@ body {
     transition: all 0.7s cubic-bezier(0, 0, 0.2, 1);
 }
 
-/* RICKROLL MODAL - THÈME DÉGOÛTANT AMÉLIORÉ */
 .rickroll-modal {
     position: fixed;
     top: 0;
@@ -380,7 +365,6 @@ body {
     100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* EFFET DE BORDURE VISQUEUSE AMÉLIORÉ */
 .rickroll-content::before {
     content: '';
     position: absolute;
@@ -436,7 +420,6 @@ body {
     100% { text-shadow: 0 0 20px rgba(138, 255, 68, 0.9), 0 0 40px rgba(60, 120, 10, 0.7), 0 5px 20px rgba(0, 0, 0, 0.8); }
 }
 
-/* ANIMATIONS VISQUEUSES ET RÉPUGNANTES AMÉLIORÉES */
 @keyframes pulse-disgust {
     0% { transform: scale(1); filter: brightness(1); }
     50% { transform: scale(1.08); filter: brightness(1.3) saturate(1.3); }
@@ -459,18 +442,15 @@ body {
     100% { height: 0; opacity: 0; transform: translateX(-50%) translateY(30px); }
 }
 
-/* EFFETS DE TEXTURE SUPPLÉMENTAIRES */
 .story-container, .dialog-box {
     background-blend-mode: overlay, multiply, screen, normal;
     isolation: isolate;
 }
 
-/* CURSEUR PERSONNALISÉ - VISQUEUX */
 .story-container {
     cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFEmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDUgNzkuMTYzNDk5LCAyMDE4LzA4LzEzLTE2OjQwOjIyICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTAzLTI2VDIxOjQxOjE5KzAxOjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0wMy0yNlQyMTo0MzoxNyswMTowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0wMy0yNlQyMTo0MzoxNyswMTowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5YThjNDYzYi1lMTMxLTI4NGMtYWVmNC0xZDUzOTNiOThjN2YiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OWE4YzQ2M2ItZTEzMS0yODRjLWFlZjQtMWQ1MzkzYjk4YzdmIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6OWE4YzQ2M2ItZTEzMS0yODRjLWFlZjQtMWQ1MzkzYjk4YzdmIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo5YThjNDYzYi1lMTMxLTI4NGMtYWVmNC0xZDUzOTNiOThjN2YiIHN0RXZ0OndoZW49IjIwMjAtMDMtMjZUMjE6NDE6MTkrMDE6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE5IChXaW5kb3dzKSIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7R6KEgAAABjElEQVRYCe1XsWrCUBQ9iUQEoUNHPyDt2MVJnEXo0KFfULr5GR3ET2ihS7+hZMgmtGShQ0Fs+oIKQgrbCsEhw0lKNN5XmyZCXtLBQM7JO+8+zrnvnZcHzn/1b/FvAaWUxVxA7YXO81wp9ftdyTVEtA3TQiuVc7tir8H6T4LQcV6JRcOUExHP1YqcHnLzqPlLIKI4OfneOvCHR4rcQ7ngETUTfywlQRDdrkerPT/vBkMh+kAs03NxVf+j1zvCYXi7XOpr7UAgushkLJNAM8GZHHbebjfqdcolffX9+URx7GbTEIsZATKac7PZimj6xFBQsK/Xa4XdMBiDEGrWaayMAVnCCbkNi6L3hZOw5UxK9JZFobMbXoTk3qPx8lSraVvt9+VWXVdjY3L5TiYzpbJzOaeUJ5NOzpnpZUUQHj57PUnZ7X2obe1X7faaY3p2+Nkt9Zp+R+KIsgRXTvb3V9KHxq5Mxnbpna5UHrln0G7fZrO2yblzFDbHpYJrylPWPiYT/T0Y4ngIk6Gf/QBgtQt2TNJTnAAAAABJRU5ErkJggg=='), auto;
 }
 
-/* MEDIA QUERIES POUR RESPONSIVE AMÉLIORÉES */
 @media (max-width: 768px) {
     .story-container {
         width: 95%;
@@ -496,7 +476,6 @@ body {
     }
 }
 
-/* EFFETS ORGANIQUES SUPPLÉMENTAIRES */
 .stain-animated {
     position: absolute;
     background: radial-gradient(circle at center, rgba(138, 255, 68, 0.4), transparent 70%);
@@ -517,7 +496,6 @@ body {
     100% { opacity: 0.2; transform: scale(1.4); }
 }
 
-/* BULLES PUTRIDES */
 .bubble {
     position: absolute;
     background: radial-gradient(circle at center, rgba(90, 140, 30, 0.7) 0%, rgba(40, 80, 20, 0.4) 60%, transparent 100%);
@@ -535,7 +513,6 @@ body {
     100% { transform: translate(-30px, -100px) scale(0.2); opacity: 0; }
 }
 
-/* TREMBLEMENTS DE TEXTE DÉGOÛTANT */
 .story-text:hover .disgust-highlight {
     animation: disgust-wiggle 0.3s ease-in-out infinite alternate;
 }
@@ -548,7 +525,6 @@ body {
     100% { transform: translateX(1px) translateY(0px) scale(1); }
 }
 
-/* EFFET DE PULSATION NAUSÉABONDE */
 .dialog-box {
     animation: nauseating-pulse 15s infinite alternate ease-in-out;
 }
@@ -561,7 +537,6 @@ body {
     100% { transform: scale(0.997); }
 }
 
-/* EFFET DE MOUVEMENT DE "RESPIRATION MALADE" */
 .disgust-highlight {
     transform-origin: center bottom;
     animation: sick-breathing 3s ease-in-out infinite;
@@ -572,7 +547,6 @@ body {
     50% { transform: scale(1.03) translateY(-1px); }
 }
 
-/* EFFET DE TRACE VISQUEUSE SUR SURVOL */
 .story-container:hover::after {
     filter: contrast(1.2) brightness(1.1);
     opacity: 0.3;
@@ -580,12 +554,11 @@ body {
     transition: all 0.8s ease;
 }
 
-/* FILTRE VISUEL GLOBAL POUR RENFORCER LE DÉGOÛT */
-#degout {
+#disgust {
     position: relative;
 }
 
-#degout::after {
+#disgust::after {
     content: '';
     position: fixed;
     top: 0;
@@ -601,7 +574,6 @@ body {
     mix-blend-mode: overlay;
 }
 
-/* FLOTTER LE BOUTON DE MANIÈRE NAUSÉABONDE */
 .start-button {
     animation: nauseating-float 3s infinite alternate ease-in-out;
 }
@@ -611,7 +583,6 @@ body {
     100% { transform: translateY(-4px) rotate(0.3deg); }
 }
 
-/* AMÉLIORATION DE L'EFFET DE MOISISSURE */
 .dialog-box::before {
     background: 
         url('https://www.transparenttextures.com/patterns/green-dust-and-scratches.png'),

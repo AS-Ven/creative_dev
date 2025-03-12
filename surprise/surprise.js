@@ -483,13 +483,13 @@ function setupParticles() {
 document.addEventListener("sectionChanged", (event) => {
     const newSection = event.detail.newSection;
     surpriseEnabled = (newSection === "surprise");
-    console.log("Section changed to:", newSection, "- Surprise enabled:", surpriseEnabled);
+    // console.log("Section changed to:", newSection, "- Surprise enabled:", surpriseEnabled);
 });
 
 surpriseSection.addEventListener("click", () => {
     if (!surpriseEnabled || animationPlaying) return;
 
-    if (Math.floor(Math.random() * 10 + 1) === 4) {
+    if (Math.floor(Math.random() * 5 + 1) === 4) {
         if (surpriseAudio) {
             surpriseAudio.pause();
             surpriseAudio.currentTime = 0;

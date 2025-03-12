@@ -1,55 +1,40 @@
+const disgustAudio = document.getElementById("disgustAudio")
+
 let cursorBlinking = false;
 let isTyping = false;
-let disgustSound;
-let typingSound;
-let storyContainer;
-let storyText;
-let visualEffects;
 let storyStarted = false;
-let currentParagraphIndex = 0;
 let textComplete = false;
 let clickCooldown = false;
+let typingSpeed = 40;
+let currentParagraphIndex = 0;
 let autoProgressTimer = null;
+
+let disgustSound
+let typingSound
+let storyContainer
+let storyText
+let visualEffects
 
 const storyParagraphs = [
     "Il était une fois, dans un petit appartement du centre-ville, un homme qui vivait seul depuis des années. Sa cuisine, qu'il n'avait pas nettoyée depuis des mois, était devenue un véritable {laboratoire de microbes}.",
-    
     "Un soir d'été particulièrement chaud, il décida enfin de s'attaquer au nettoyage. En ouvrant son réfrigérateur, une {odeur nauséabonde} le frappa de plein fouet.",
-    
     "Au fond, dans un tupperware oublié, quelque chose de {verdâtre et visqueux} pulsait doucement.",
-    
     "Retenant un haut-le-cœur, il saisit le récipient. Le couvercle s'ouvrit avec un {bruit de succion répugnant}, libérant un nuage de spores microscopiques.",
-    
     "À l'intérieur, ce qui avait été autrefois des pâtes à la carbonara était désormais une masse {grouillante de moisissures} aux couleurs improbables.",
-    
     "Il remarqua avec horreur que des {filaments blancs} s'étendaient comme des doigts délicats sur toute la surface.",
-    
     "En y regardant de plus près, il aperçut de minuscules {créatures transparentes} qui se déplaçaient entre les colonies de champignons.",
-    
     "L'homme sentit son estomac se retourner quand il vit que la substance avait {commencé à digérer le plastique} du récipient, créant de petits trous par lesquels s'écoulait un {liquide brunâtre et épais}.",
-    
     "Horrifié mais fasciné, il approcha son visage pour mieux observer. La surface de la masse {frémit légèrement} comme si elle réagissait à sa présence.",
-    
     "Une goutte de sueur tomba de son front et atterrit sur la culture. À son contact, la masse {émit un sifflement} et {commença à bouillonner}.",
-    
     "Soudain, une bulle éclata, projetant des {particules gluantes} sur son visage. Il sentit la substance {chaude et visqueuse glisser lentement} le long de sa joue.",
-    
     "L'odeur était si forte qu'il pouvait presque la {goûter au fond de sa gorge}.",
-    
     "Pris de panique, il lâcha le récipient qui s'écrasa au sol. La {masse infecte} se répandit, {rampant rapidement} comme si elle était {douée d'une volonté propre}.",
-    
     "Elle progressait vers lui, laissant derrière elle une {traînée luisante} qui semblait pulser au rythme d'un cœur invisible.",
-    
     "Son cœur battait la chamade tandis qu'il reculait contre le mur de la cuisine. La substance semblait {s'étendre et se multiplier} au contact de l'air.",
-    
     "Des {bulles nauséabondes éclataient} à sa surface, libérant une {brume toxique} qui emplissait la pièce.",
-    
     "Avec horreur, il réalisa que la masse avait {atteint ses pieds} et {commençait à grimper} le long de sa jambe, laissant une sensation de {brûlure glaciale} sur sa peau.",
-    
     "Il voulut crier, mais sa gorge était paralysée par la terreur. La substance {pulsait maintenant au rythme de son cœur} tandis qu'elle continuait son ascension inexorable.",
-    
     "Il sentait des {millions de micro-organismes} pénétrer ses pores, s'infiltrer sous sa peau, {coloniser son corps de l'intérieur}...",
-    
     "{QUAND SOUDAIN...}"
 ];
 
@@ -80,15 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
 function startStory() {
     if (storyStarted) return;
     storyStarted = true;
-    
     document.getElementById('start-story').style.display = 'none';
-    
     createDialogBox();
-    
     showParagraph(0);
 }
 
@@ -194,7 +175,6 @@ function completeCurrentText() {
         }
     }, 800);
 }
-
 
 function processText(text) {
     let processed = '';
@@ -432,6 +412,55 @@ function createBubble(x, y) {
     }
 }
 
+function addDisgustEffect() {
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    
+    const stainContainer = document.getElementById('stains-container');
+    if (!stainContainer) return;
+    
+    const stain = document.createElement('div');
+    stain.className = 'stain';
+    stain.style.left = `${x}%`;
+    stain.style.top = `${y}%`;
+    stain.style.width = `${20 + Math.random() * 50}px`;
+    stain.style.height = `${20 + Math.random() * 50}px`;
+    stain.style.opacity = `${0.1 + Math.random() * 0.3}`;
+    stain.style.backgroundColor = `rgba(${60 + Math.random() * 40}, ${120 + Math.random() * 60}, ${40 + Math.random() * 30}, 0.2)`;
+    
+    stainContainer.appendChild(stain);
+    
+    if (typeof gsap !== 'undefined') {
+        if (stain) {
+            gsap.to(stain, {
+                width: `${30 + Math.random() * 70}px`,
+                height: `${30 + Math.random() * 70}px`,
+                opacity: 0.05,
+                duration: 2 + Math.random() * 3,
+                onComplete: () => {
+                    if (Math.random() > 0.5 && stainContainer) {
+                        createDrip(x, y);
+                    }
+                }
+            });
+        }
+        
+        if (storyContainer) {
+            gsap.to(storyContainer, {
+                x: (Math.random() < 0.5 ? -2 : 2),
+                duration: 0.1,
+                repeat: 3,
+                yoyo: true,
+                onComplete: () => {
+                    if (storyContainer) {
+                        gsap.set(storyContainer, { x: 0 });
+                    }
+                }
+            });
+        }
+    }
+}
+
 function triggerRickroll() {
     if (storyContainer) {
         storyContainer.style.animation = 'none';
@@ -450,23 +479,35 @@ function triggerRickroll() {
     content.appendChild(title);
     
     const gif = document.createElement('img');
+    gif.src = 'https://media.tenor.com/x8v1oNUOmg4AAAAM/rickroll-roll.gif';
     gif.alt = 'You got rickrolled!';
     
-    gif.onload = function() {
-        setTimeout(() => {
-            modal.style.opacity = '1';
-            
-            const rickrollAudio = document.getElementById('disgustAudio');
-            if (rickrollAudio) {
-                rickrollAudio.loop = false;
-                rickrollAudio.currentTime = 0;
-                rickrollAudio.volume = 0.5;
-                rickrollAudio.play().catch(e => console.log('Erreur audio:', e));
-            }
-        }, 500);
-    };
-    
     content.appendChild(gif);
+    
     modal.appendChild(content);
     document.body.appendChild(modal);
+    
+    gif.onload = function() {
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                
+                setTimeout(() => {
+                    const rickrollAudio = document.getElementById('disgustAudio');
+                    if (rickrollAudio) {
+                        rickrollAudio.loop = false;
+                        rickrollAudio.currentTime = 0;
+                        rickrollAudio.volume = 0.5;
+                        rickrollAudio.play().catch(e => console.log('Erreur audio:', e));
+                    }
+                }, 300);
+                
+            }, 100);
+        });
+    };
+    
+    gif.onerror = function() {
+        console.error("Erreur de chargement du GIF");
+        modal.style.opacity = '1';
+    };
 }
